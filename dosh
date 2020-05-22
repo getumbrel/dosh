@@ -4,7 +4,12 @@ shell=${DOSH_DEFAULT_SHELL:-bash}
 default_image=${DOSH_DEFAULT_IMAGE:-debian:buster-slim}
 init_hook=$DOSH_INIT_HOOK
 
-image=${1:-$default_image}
+if [[ $@ != -* ]]; then
+  user_supplied_image=$1
+  shift
+fi
+image=${user_supplied_image:-$default_image}
+docker_run_args=$@
 
 init_script="
 cd /workdir
@@ -18,4 +23,4 @@ else
 fi
 "
 
-docker run -it --entrypoint sh -v ${PWD}:/workdir $image -c "$init_script"
+docker run -it --entrypoint sh -v ${PWD}:/workdir $docker_run_args $image -c "$init_script"
