@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Load environment variables
 default_image=${DOSH_DEFAULT_IMAGE:-debian:buster-slim}
