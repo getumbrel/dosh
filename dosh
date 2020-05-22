@@ -1,9 +1,10 @@
 #!/bin/sh
 
 shell=${DOSH_DEFAULT_SHELL:-bash}
+default_image=${DOSH_DEFAULT_IMAGE:-debian:buster-slim}
 init_hook=$DOSH_INIT_HOOK
 
-image=${1:-debian:buster-slim}
+image=${1:-$default_image}
 
 init_script="
 cd /workdir
