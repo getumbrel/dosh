@@ -1,3 +1,4 @@
 #!/bin/sh
 
-docker run -it --entrypoint sh -v ${PWD}:/workdir debian:buster-slim -c 'cd /workdir && exec bash'
+image=${1:-debian:buster-slim}
+docker run -it --entrypoint sh -v ${PWD}:/workdir $image -c 'cd /workdir && exec bash'
