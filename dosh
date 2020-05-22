@@ -4,7 +4,12 @@ image=${1:-debian:buster-slim}
 
 init_script="
 cd /workdir
-exec bash
+
+if command -v bash > /dev/null; then
+  exec bash
+else
+  exec sh
+fi
 "
 
 docker run -it --entrypoint sh -v ${PWD}:/workdir $image -c "$init_script"
