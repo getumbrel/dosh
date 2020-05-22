@@ -1,11 +1,14 @@
 #!/bin/sh
 
 shell=${DOSH_DEFAULT_SHELL:-bash}
+init_hook=$DOSH_INIT_HOOK
 
 image=${1:-debian:buster-slim}
 
 init_script="
 cd /workdir
+
+$init_hook
 
 if command -v $shell > /dev/null; then
   exec $shell
