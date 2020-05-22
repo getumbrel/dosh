@@ -12,15 +12,15 @@ image=${user_supplied_image:-$default_image}
 user_supplied_docker_run_params=$@
 
 init_script="
-cd /workdir
+  cd /workdir
 
-$init_hook
+  $init_hook
 
-if command -v $shell > /dev/null; then
-  exec $shell
-else
-  exec sh
-fi
+  if command -v $shell > /dev/null; then
+    exec $shell
+  else
+    exec sh
+  fi
 "
 
 docker run \
