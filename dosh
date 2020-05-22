@@ -1,4 +1,10 @@
 #!/bin/sh
 
 image=${1:-debian:buster-slim}
-docker run -it --entrypoint sh -v ${PWD}:/workdir $image -c 'cd /workdir && exec bash'
+
+init_script="
+cd /workdir
+exec bash
+"
+
+docker run -it --entrypoint sh -v ${PWD}:/workdir $image -c "$init_script"
