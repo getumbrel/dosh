@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# TODO: This isn't actually POSIX compliant yet
+# We need to fix that.
+
 # Load environment variables
 default_image=${DOSH_DEFAULT_IMAGE:-debian:buster-slim}
 shell=${DOSH_DEFAULT_SHELL:-bash}
