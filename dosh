@@ -1,7 +1,7 @@
 #!/bin/sh
 
-shell=${DOSH_DEFAULT_SHELL:-bash}
 default_image=${DOSH_DEFAULT_IMAGE:-debian:buster-slim}
+shell=${DOSH_DEFAULT_SHELL:-bash}
 init_hook=$DOSH_INIT_HOOK
 
 if [[ $@ != -* ]]; then
