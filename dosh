@@ -9,7 +9,7 @@ if [[ $@ != -* ]]; then
   shift
 fi
 image=${user_supplied_image:-$default_image}
-docker_run_args=$@
+user_supplied_docker_run_params=$@
 
 init_script="
 cd /workdir
@@ -23,4 +23,10 @@ else
 fi
 "
 
-docker run -it --entrypoint sh -v ${PWD}:/workdir $docker_run_args $image -c "$init_script"
+docker run \
+  -it \
+  --entrypoint sh \
+  -v ${PWD}:/workdir \
+  $user_supplied_docker_run_params \
+  $image \
+  -c "$init_script"
