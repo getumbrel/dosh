@@ -31,8 +31,8 @@ init_script="
 
 # Run docker image and execute init script
 docker run \
-  -it \
-  -v ${PWD}:/workdir \
+  --interactive --tty \
+  --volume ${PWD}:/workdir \
   $user_supplied_docker_run_params \
   --entrypoint sh \
   $image -c "$init_script"
