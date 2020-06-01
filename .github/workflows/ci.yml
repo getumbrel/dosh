@@ -5,6 +5,5 @@ jobs:
     name: ShellCheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run ShellCheck
-      uses: ludeeus/action-shellcheck@0.2.0
+    - run: sudo apt-get install -y shellcheck
+    - run: shellcheck dosh
