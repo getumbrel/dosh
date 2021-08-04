@@ -6,7 +6,7 @@ shell=${DOSH_DEFAULT_SHELL:-bash}
 init_hook=$DOSH_INIT_HOOK
 
 # Parse parameters
-if [[ $@ != -* ]]; then
+if [[ "${*}" != -* ]]; then
   user_supplied_image=$1
   shift
 fi
