@@ -16,4 +16,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: sudo snap install shfmt
-    - run: shfmt dosh
+    - run: shfmt -d dosh
