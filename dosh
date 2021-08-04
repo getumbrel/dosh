@@ -11,7 +11,7 @@ if [[ $@ != -* ]]; then
   shift
 fi
 image=${user_supplied_image:-$default_image}
-user_supplied_docker_run_params=$@
+user_supplied_docker_run_params=("${@}")
 
 # Define init script
 init_script="
@@ -30,6 +30,6 @@ init_script="
 docker run \
   --interactive --tty \
   --volume ${PWD}:/workdir \
-  $user_supplied_docker_run_params \
+  "${user_supplied_docker_run_params[@]}" \
   --entrypoint sh \
   $image -c "$init_script"
