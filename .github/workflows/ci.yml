@@ -1,12 +1,17 @@
 name: CI
 on: push
 jobs:
-  shellcheck:
-    name: ShellCheck
+
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: ShellCheck
-      uses: ludeeus/action-shellcheck@1.1.0
-    - name: Run the sh-checker
-      uses: luizm/action-sh-checker@v0.3.0
+    - run: sudo apt-get install -y shellcheck
+    - run: shellcheck dosh
+
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+    - run: sudo snap install shfmt
+    - run: shfmt dosh
