@@ -2,4 +2,4 @@
 
 ## License
 
-MIT © Luke Childs
+MIT © Umbrel, Inc
