@@ -8,6 +8,10 @@ While all execution is sandboxed in the temporary container, changes in the file
 
 This gives you a safe temporary environment to execute untrusted code. Perfect for installing project dependencies during development, executing suspicious binaries, or doing anything you don't want to give full access to your system.
 
+## Usage
+
+TODO
+
 ## License
 
 MIT © Umbrel, Inc
