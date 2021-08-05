@@ -19,7 +19,8 @@ init_script="
 
   ${init_hook}
 
-  if command -v \"${shell}\" > /dev/null; then
+  if command -v \"${shell}\" > /dev/null
+  then
     exec \"${shell}\"
   else
     exec sh
