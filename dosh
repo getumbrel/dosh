@@ -15,7 +15,7 @@ user_supplied_docker_run_params=("${@}")
 
 # Define init script
 init_script="
-  cd /dosh
+  cd /sandbox
 
   ${init_hook}
 
@@ -29,7 +29,7 @@ init_script="
 # Run docker image and execute init script
 docker run \
 	--interactive --tty \
-	--volume "${PWD}:/dosh" \
+	--volume "${PWD}:/sandbox" \
 	"${user_supplied_docker_run_params[@]}" \
 	--entrypoint sh \
 	"${image}" -c "${init_script}"
